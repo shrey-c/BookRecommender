@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container">
+		<a class="navbar-brand" href="{{ url_for('home.index') }}">Montag</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				{% if current_user.is_authenticated %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('home.book_lookup', letter='a') }}">Book Lookup</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('home.top_books') }}">Top Books</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('home.recommend') }}">Recommended For You</a>
+					</li>
+				{% else %}
+				{% endif %}
+			</ul>
+			<ul class="navbar-nav">
+				{% if current_user.is_authenticated %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+					</li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('auth.signup') }}">Sign Up</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</nav>
