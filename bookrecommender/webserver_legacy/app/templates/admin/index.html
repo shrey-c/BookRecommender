@@ -1,0 +1,13 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+{% if current_user.is_authenticated %}
+{%if current_user.email=="admin@vjti.com"%}
+<button><a href="{{url_for('auth.logout')}}" style="text-decoration:none;">Logout</a></button>
+{%else%}
+<span>Access Denied !</span>
+{%endif%}
+{%else%}
+<span>Login To Access This Page !</span>
+{% endif %}
+{% endblock %}

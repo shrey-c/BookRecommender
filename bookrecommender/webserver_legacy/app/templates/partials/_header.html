@@ -17,6 +17,12 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('home.recommend') }}">Recommended For You</a>
 					</li>
+				<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('home.issued') }}">Issued</a>
+					</li>
+				<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('home.pending') }}">Pending</a>
+					</li>
 				{% else %}
 				{% endif %}
 			</ul>

@@ -6,6 +6,20 @@ from string import ascii_uppercase
 import numpy as np
 from app import models
 from . import home
+from app.models import User,Transaction
+
+
+@home.route("/issued")
+@login_required
+def issued():
+
+	books_issued = Transaction.query.filter_by(email=current_user.email).all()
+	return render_template('home/issued.html', books_issued=books_issued)
+
+@home.route("/pending")
+def pending():
+	books_pending = Transaction.query.filter_by(email=current_user.email).filter_by(returned=False).all()
+	return render_template('home/pending.html', books_pending=books_pending)
 
 @home.route("/")
 def index():

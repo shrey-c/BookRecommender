@@ -21,6 +21,9 @@ def signup():
 				db.session.add(user)
 				db.session.commit()
 				login_user(user)
+
+
+
 				flash('You have successfully signed up!')
 
 		return redirect(url_for("home.index"))
@@ -38,6 +41,10 @@ def login():
 				db.session.add(user)
 				db.session.commit()
 				login_user(user)
+
+				if current_user.email == 'admin@vjti.com':
+					return redirect('/admin')
+
 				flash('Welcome back!')
 				return redirect(url_for("home.index"))
 			else:

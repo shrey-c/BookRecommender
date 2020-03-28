@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+    <div class="row justify-content-center pt-4 text-center">
+        <div class="col-md-3 border border-secondary">
+         ISBN
+        </div>
+        <div class="col-md-3 border border-secondary">
+         BOOK NAME
+        </div>
+        <div class="col-md-3 border border-secondary">
+         ISSUE-DATE
+        </div>
+        <div class="col-md-3 border border-secondary">
+         DUE-DATE
+        </div>
+    </div>
+
+    {% if books_issued %}
+    {% for tran in books_issued %}
+       <div class="row justify-content-center text-center">
+           <div class="col-md-3 border border-secondary">
+         {{tran.isbn}}
+        </div>
+        <div class="col-md-3 border border-secondary">
+         {{tran.book_name}}
+        </div>
+        <div class="col-md-3 border border-secondary">
+         {{tran.issue_date.strftime('%d/%m/%Y')}}
+        </div>
+        <div class="col-md-3 border border-secondary">
+         {{tran.due_date.strftime('%d/%m/%Y')}}
+        </div>
+       </div>
+    {% endfor %}
+    {% endif %}
+
+
+{% endblock %}
