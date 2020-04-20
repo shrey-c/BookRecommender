@@ -1,7 +1,5 @@
 certifi==2018.4.16
 chardet==3.0.4
-Django==2.2.10
-django-environ==0.4.4
 idna==2.6
 lightfm==1.14
 numpy==1.14.3
@@ -15,3 +13,11 @@ scipy==1.1.0
 six==1.11.0
 SQLAlchemy==1.2.7
 urllib3==1.24.2
+flask
+flask-sqlalchemy
+pymysql
+flask-migrate
+werkzeug
+flask-login
+wtforms
+
